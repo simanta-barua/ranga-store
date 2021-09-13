@@ -5,15 +5,31 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  text-align: center;
 }
 
 .card{
   align-items: center;
-  padding: 25px;
+  padding: 1rem;
   border-radius: 5%;
+  box-shadow: 0 1px 4px 0 rgba(230, 221, 221, 0.2), 0 6px 20px 0 rgba(105, 155, 132, 0.19);
 }
 .card-img-top{
-  width: 300px;
-  height: 300px;
-  object-fit:scale-down;
+  width: 18.75rem;
+  height: 18.75rem;
+  object-fit:contain;
+}
+.card:hover {
+  transform: scale(1.01);
+  overflow: hidden;
+  transition: all ease-in-out 0.2s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+.btn,.form-control{
+  border-radius: 1.75rem;
+ 
+}
+.form-control{
+  padding: .75rem;
 }

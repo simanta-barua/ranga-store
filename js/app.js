@@ -27,9 +27,9 @@ const showProducts = (products) => {
       <h6>Average-rating: ${rate}</h6>
       </div>
     </div>
-    <div class="card-footer mx-auto">
-    <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="buy-now btn btn-success">Add to cart</button>
-    <button id="details-btn" onclick='showDetails(${price},${rate})' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
+    <div class="card-footer">
+    <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="mx-2 btn btn-success"><i class="bi bi-cart4"> </i>Add to cart</button>
+    <button id="details-btn" onclick='showDetails(${price},${rate})' class="mx-2 btn btn-danger"><i class="bi bi-info-circle"> </i>Details</button>
     </div>
   </div>
  `
