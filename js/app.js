@@ -4,29 +4,31 @@ const loadProducts = () => {
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
+//Loading product
 loadProducts();
 
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    const image = product.image;
-    //by destructuring product object
-    const { rate, count } = product.rating
+    //Destructuring product object
+
+    const {id, title, price, description, category, image, rate } = product;
+    
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = ` <div class="card h-100">
     <img src="${image}" class="card-img-top w-50 img-fluid" alt="Product Image">
     <div class="card-body">
-      <h5 class="card-title">${product.title}</h5>
-      <p class="card-text">Category: ${product.category}</p>
-      <h4>Price: $ ${product.price}</h4>
+      <h5 class="card-title">${title}</h5>
+      <p class="card-text">Category: ${category}</p>
+      <h4>Price: $ ${price}</h4>
       <h5>Total-Rating : ${count} </h5>
       <h6>Average-rating: ${rate}</h6>
     </div>
     <div class="card-footer mx-auto">
-    <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">Add to cart</button>
-    <button id="details-btn" onclick='showDetails(${product.price},${rate})' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
+    <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="buy-now btn btn-success">Add to cart</button>
+    <button id="details-btn" onclick='showDetails(${price},${rate})' class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
     </div>
   </div>
  `
@@ -58,7 +60,7 @@ const updatePrice = (id, value) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = Math.round(value);
+  document.getElementById(id).innerText = value.toFixed(2);
 };
 
 // update delivery charge and total Tax
@@ -75,6 +77,9 @@ const updateTaxAndCharge = () => {
   if (priceConverted > 500) {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
+  }
+  else {
+    setInnerText("delivery-charge", 20);
   }
 };
 
