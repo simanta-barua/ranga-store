@@ -12,19 +12,20 @@ const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     //Destructuring product object
-
-    const {id, title, price, description, category, image, rate } = product;
-    
+    const {id, title, price, category, image ,rating:{rate, count}} = product;
+   
     const div = document.createElement("div");
     div.classList.add("col");
-    div.innerHTML = ` <div class="card h-100">
-    <img src="${image}" class="card-img-top w-50 img-fluid" alt="Product Image">
+    div.innerHTML = ` <div class="card  h-100">
+    <img src="${image}" class="card-img-top w-50" alt="Product Image">
     <div class="card-body">
       <h5 class="card-title">${title}</h5>
+      <div class="card-items">
       <p class="card-text">Category: ${category}</p>
       <h4>Price: $ ${price}</h4>
       <h5>Total-Rating : ${count} </h5>
       <h6>Average-rating: ${rate}</h6>
+      </div>
     </div>
     <div class="card-footer mx-auto">
     <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="buy-now btn btn-success">Add to cart</button>
