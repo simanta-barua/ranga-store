@@ -33,18 +33,6 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
-
-const showDetails = (price, rating) => {
-  const x = Array.from(Array(parseInt(rating)).keys()).map((r) => '<i class="bi bi-star-fill text-warning"></i>')
-  document.getElementById("modal-body").innerHTML = `
-     <div class='p-3'>
-    <p>Rating: ${Array.from(Array(parseInt(rating)).keys()).map((r) =>
-    '<i class="bi bi-star-fill text-warning"></i>')}</p>
-      <h2>Price: $ ${price}</h2>
-     </div>`;
-}
-
-
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
