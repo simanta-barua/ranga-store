@@ -1,41 +1,53 @@
 const loadProducts = () => {
+  toggleSpinner("block");
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
 };
-//Loading product
-loadProducts();
 
-// show all product in UI 
+//spinner toggle
+const toggleSpinner = (displayStyle) => {
+  const spinner = (document.getElementById("spinner").style.display = displayStyle);
+};
+// show all product in UI
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
     //Destructuring product object
-    const {id, title, price, category, image ,rating:{rate, count}} = product;
-   
+    const {
+      id,
+      title,
+      price,
+      category,
+      image,
+      rating: { rate, count },
+    } = product;
     const div = document.createElement("div");
     div.classList.add("col");
+    //showing single product
     div.innerHTML = ` <div class="card  h-100">
-    <img src="${image}" class="card-img-top w-50" alt="Product Image">
-    <div class="card-body">
-      <h5 class="card-title">${title}</h5>
-      <div class="card-items">
-      <p class="card-text">Category: ${category}</p>
-      <h4>Price: $ ${price}</h4>
-      <h5>Total-Rating : ${count} </h5>
-      <h6>Average-rating: ${rate}</h6>
-      </div>
-    </div>
-    <div class="card-footer">
-    <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="mx-2 btn btn-success"><i class="bi bi-cart4"> </i>Add to cart</button>
-    <button id="details-btn" onclick='showDetails(${price},${rate})' class="mx-2 btn btn-danger"><i class="bi bi-info-circle"> </i>Details</button>
+  <img src="${image}" class="card-img-top w-50" alt="Product Image">
+  <div class="card-body">
+    <h5 class="card-title">${title}</h5>
+    <div class="card-items">
+    <p class="card-text">Category: ${category}</p>
+    <h4>Price: $ ${price}</h4>
+    <h5>Total-Rating : ${count} </h5>
+    <h6>Average-rating: ${rate}</h6>
     </div>
   </div>
- `
+  <div class="card-footer text-center">
+  <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="m-2  btn btn-success"><i class="bi bi-cart4"> </i>Add to cart</button>
+  <button id="details-btn" onclick='showDetails(${price},${rate})' class="m-2 btn btn-danger"><i class="bi bi-info-circle"> </i>Details</button>
+  </div>
+</div>
+`;
     document.getElementById("all-products").appendChild(div);
   }
+  toggleSpinner("none");
 };
+//add to cart
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -44,7 +56,7 @@ const addToCart = (id, price) => {
   document.getElementById("total-Products").innerText = count;
   updateTotal();
 };
-
+// get id and converter function
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
@@ -64,7 +76,7 @@ const setInnerText = (id, value) => {
   document.getElementById(id).innerText = value.toFixed(2);
 };
 
-// update delivery charge and total Tax
+// update delivery charge and total TAX function
 const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
   if (priceConverted > 200) {
@@ -79,15 +91,15 @@ const updateTaxAndCharge = () => {
     setInnerText("delivery-charge", 60);
     setInnerText("total-tax", priceConverted * 0.4);
   }
-  else {
-    setInnerText("delivery-charge", 20);
-  }
+  //Default delivery Charge
+  setInnerText("delivery-charge", 20);
 };
 
-//grandTotal update function
+//GrandTotal update function
 const updateTotal = () => {
-  const grandTotal =
-    getInputValue("price") + getInputValue("delivery-charge") +
-    getInputValue("total-tax");
+  const grandTotal = getInputValue("price") + getInputValue("delivery-charge") + getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+
+//Loading product
+loadProducts();

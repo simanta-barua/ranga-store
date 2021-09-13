@@ -17,32 +17,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 
-<body class="container-fluid mx-5 bg-opacity-10 bg-primary">
+<body class="container-fluid bg-opacity-10 bg-primary">
   <header>
-    <div class=" my-5 ">
+    <div class="my-5">
       <h1 class="text-center display-1 my-3">E-Store</h1>
-      <!-- <div class="text-end">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-          My Cart
-        </button>
-      </div> -->
       <form class="d-flex">
-      <div class="input-group mb-3 w-50 mx-auto search-field justify-content-center">
-        <input type="text" class="form-control border-primary" placeholder="Search Product" aria-label="Search Product" aria-describedby="button-addon2">
-        <button class="btn btn-outline-primary" type="button" id="button-addon2" autocomplete="off" onclick="loadProducts()">Search</button>
-      </div>
-    </form>
+        <div class="input-group mb-3 w-50 mx-auto search-field justify-content-center">
+          <input type="text" class="form-control border-primary" placeholder="Search Product"
+            aria-label="Search Product" aria-describedby="button-addon2" />
+          <button class="btn btn-outline-primary" type="button" id="button-addon2" autocomplete="off"
+            onclick="loadProducts()">Search</button>
+        </div>
+      </form>
     </div>
   </header>
-  <main class="main">
+  <main class="main ms-5">
     <div class="row">
-      <!-- Product section start -->
-      <div class="container col-8">
-        <div class="row row-cols-1 row-cols-md-3 g-4 " id="all-products">
+      <!-- spinner -->
+      <div id="spinner">
+        <div class="d-flex justify-content-center mx-auto my-5 p-5">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
         </div>
       </div>
       <!-- Product section start -->
-      <div class="col-4">
+      <div class="container col-9">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-2 g-4" id="all-products"></div>
+      </div>
+      <!-- Product section start -->
+      <div class="col-md-3">
         <div class="cart-main">
           <div class="cart" id="my-cart">
             <table class="table">
@@ -58,7 +62,7 @@
               <tbody>
                 <tr>
                   <th>Total Added-Products:</th>
-                  <td> <span id="total-Products">0</span></td>
+                  <td><span id="total-Products">0</span></td>
                   <td></td>
                   <td></td>
                 </tr>

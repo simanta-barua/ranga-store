@@ -1,4 +1,7 @@
- .card-body{
+.body{
+  font-family: 'Montserrat', sans-serif;
+}
+.card-body {
   width: 100%;
   height: auto;
   display: flex;
@@ -8,16 +11,17 @@
   text-align: center;
 }
 
-.card{
+.card {
   align-items: center;
   padding: 1rem;
   border-radius: 5%;
-  box-shadow: 0 1px 4px 0 rgba(230, 221, 221, 0.2), 0 6px 20px 0 rgba(105, 155, 132, 0.19);
+  box-shadow: 0 1px 4px 0 rgba(230, 221, 221, 0.2),
+    0 6px 20px 0 rgba(105, 155, 132, 0.19);
 }
-.card-img-top{
+.card-img-top {
   width: 18.75rem;
   height: 18.75rem;
-  object-fit:contain;
+  object-fit: contain;
 }
 .card:hover {
   transform: scale(1.01);
@@ -26,10 +30,24 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   cursor: pointer;
 }
-.btn,.form-control{
+.btn,
+.form-control {
   border-radius: 1.75rem;
- 
+  font-weight: 500;
+  text-transform: capitalize;
 }
-.form-control{
-  padding: .75rem;
+.form-control {
+  padding: 0.75rem;
+}
+.cart-main {
+  border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 1.5rem;
+  margin: 1.25rem;
+  font-weight: 600;
+  color: rgb(85, 136, 230);
+  position: fixed;
+}
+#spinner {
+  display: none;
 }
