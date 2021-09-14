@@ -1,5 +1,5 @@
-.body{
-  font-family: 'Montserrat', sans-serif;
+.body {
+  font-family: "Montserrat", sans-serif;
 }
 .card-body {
   width: 100%;
@@ -19,8 +19,8 @@
     0 6px 20px 0 rgba(105, 155, 132, 0.19);
 }
 .card-img-top {
-  width: 18.75rem;
-  height: 18.75rem;
+  width: 15.75rem;
+  height: 15.75rem;
   object-fit: contain;
 }
 .card:hover {
@@ -42,12 +42,21 @@
 .cart-main {
   border-radius: 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 1.5rem;
   margin: 1.25rem;
+  padding: 1.5rem;
   font-weight: 600;
   color: rgb(85, 136, 230);
   position: fixed;
 }
 #spinner {
   display: none;
+}
+.details {
+  padding: 1rem;
+  border-radius: 15px;
+  box-shadow: 0 1px 4px 0 rgba(230, 221, 221, 0.2),
+    0 6px 20px 0 rgba(105, 155, 132, 0.19);
+  background-color: azure;
+  margin: 2.5rem;
+  padding: 1.5rem;
 }

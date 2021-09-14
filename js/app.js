@@ -19,6 +19,7 @@ const showProducts = (products) => {
       id,
       title,
       price,
+      description,
       category,
       image,
       rating: { rate, count },
@@ -39,14 +40,15 @@ const showProducts = (products) => {
   </div>
   <div class="card-footer text-center">
   <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="m-2  btn btn-outline-success"><i class="bi bi-cart4"> </i>Add to cart</button>
-  <button id="details-btn" class="m-2 btn btn-outline-danger"><i class="bi bi-info-circle"> </i>Details</button>
+  <button id="details-btn" onclick="showDetails('${title}','${image}','${description}', ${price})"  class="m-2 btn btn-outline-danger ">
+  <i class="bi bi-info-circle"> </i>Details</button>
   </div>
 </div>
 `;
     document.getElementById("all-products").appendChild(div);
     toggleSpinner("none");
   }
- 
+
 };
 //add to cart
 let count = 0;
@@ -104,3 +106,19 @@ const updateTotal = () => {
 
 //Loading product
 loadProducts();
+
+//show Details
+const showDetails = (title, image, description, price) => {
+  document.getElementById("showDetails").textContent="";
+  const div = document.createElement("div");
+  div.classList.add("row", "details");
+  div.innerHTML = `
+    <div class="col-4 "><img src="${image}" alt="" class="w-50"></div>
+    <div class="col-8">
+      <h3 class="text-primary">${title}</h3>
+      <h4 class="text-warning">Price: $ ${price}</h4>
+      <p>${description}</p>
+  </div>`;
+  document.getElementById("showDetails").appendChild(div);
+
+}
