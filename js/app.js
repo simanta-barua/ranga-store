@@ -29,23 +29,24 @@ const showProducts = (products) => {
     div.innerHTML = ` <div class="card  h-100">
   <img src="${image}" class="card-img-top w-50" alt="Product Image">
   <div class="card-body">
-    <h5 class="card-title">${title}</h5>
+    <h5 class="card-title text-primary">${title}</h5>
     <div class="card-items">
-    <p class="card-text">Category: ${category}</p>
+    <p class="card-text text-muted">Category: ${category}</p>
     <h4>Price: $ ${price}</h4>
-    <h5>Total-Rating : ${count} </h5>
-    <h6>Average-rating: ${rate}</h6>
+    <h5 >Total Rating : ${count} </h5>
+    <h6>Average Rating:<span class="text-warning"> ${rate}</span></h6>
     </div>
   </div>
   <div class="card-footer text-center">
-  <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="m-2  btn btn-success"><i class="bi bi-cart4"> </i>Add to cart</button>
-  <button id="details-btn" onclick='showDetails(${price},${rate})' class="m-2 btn btn-danger"><i class="bi bi-info-circle"> </i>Details</button>
+  <button onclick="addToCart(${id},${price})" id="addToCart-btn" class="m-2  btn btn-outline-success"><i class="bi bi-cart4"> </i>Add to cart</button>
+  <button id="details-btn" class="m-2 btn btn-outline-danger"><i class="bi bi-info-circle"> </i>Details</button>
   </div>
 </div>
 `;
     document.getElementById("all-products").appendChild(div);
+    toggleSpinner("none");
   }
-  toggleSpinner("none");
+ 
 };
 //add to cart
 let count = 0;

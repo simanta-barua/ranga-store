@@ -21,6 +21,7 @@
   <header>
     <div class="my-5">
       <h1 class="text-center display-1 my-3">E-Store</h1>
+      <h1 class="bx"></h1>
       <form class="d-flex">
         <div class="input-group mb-3 w-50 mx-auto search-field justify-content-center">
           <input type="text" class="form-control border-primary" placeholder="Search Product"
@@ -46,6 +47,21 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-sm-2 g-4" id="all-products"></div>
       </div>
       <!-- Product section start -->
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h4 class="text-center text-success p-5 fw-bolder"> <i class="bi bi-emoji-smile"></i> Thanks For Perching
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- My cart section -->
       <div class="col-md-3">
         <div class="cart-main">
           <div class="cart" id="my-cart">
@@ -92,13 +108,16 @@
               </tbody>
             </table>
             <div class="parces text-center">
-              <button class="btn btn-primary text-center">Buy Now</button>
+              <button class="btn btn-primary text-center" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy
+                Now</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </main>
+
+  <!-- footer Section -->
   <footer></footer>
 
   <!-- Custom js  -->
