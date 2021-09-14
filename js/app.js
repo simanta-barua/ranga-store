@@ -109,7 +109,7 @@ loadProducts();
 
 //show Details
 const showDetails = (title, image, description, price) => {
-  document.getElementById("showDetails").textContent="";
+  document.getElementById("showDetails").textContent = "";
   const div = document.createElement("div");
   div.classList.add("row", "details");
   div.innerHTML = `
